@@ -1,0 +1,14 @@
+.ui-navbar
+{
+    background: whitesmoke;
+    border-bottom: 1px solid #ced4da;
+    margin: 0 -15px;
+
+    .ui-navbar-brand
+    {
+        color: black;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 10px;
+    }
+}
