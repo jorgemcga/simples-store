@@ -4,22 +4,22 @@ import AppContext from '../../contexts/AppContext';
 import ProductItem from '../../components/product-item';
 import NavBar from '../../components/navbar'
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 export default function CartPage()
 {
-    const { selectedProducts } = React.useContext(AppContext);
+    const { setLoading, selectedProducts } = React.useContext(AppContext);
+
+    setLoading(false);
 
     return (
         <div className="page">
+            <NavBar />
             <Container fluid>
-                <NavBar />
                 <br />
                 <Row>
                     <Col>
                         <h2>
-                            <FontAwesomeIcon icon={faShoppingCart} />  Meu Carrinho
+                            Meu Carrinho
                         </h2>
                     </Col>
                 </Row>

@@ -1,6 +1,6 @@
-import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './style.scss';
 
 interface IProps
 {
@@ -14,19 +14,22 @@ export default function ModalProductAdded(props: IProps)
         <Modal show={props.show}>
             <Modal.Header closeButton>
                 <Modal.Title>
-                    Item Adicionado!
+                    <div className="text-success">
+                        Item Adicionado!
+                    </div>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <p>
                     Você pode adicionar mais ou produtos ou ver seu <Link to="/cart">carrinho</Link>
                 </p>
+                <br />
+                <div className="text-right">
+                    <Button variant="success" onClick={props.setShow}>
+                        Fechar
+                    </Button>
+                </div>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={props.setShow}>
-                    Fechar
-                </Button>
-          </Modal.Footer>
         </Modal>
     );
 }

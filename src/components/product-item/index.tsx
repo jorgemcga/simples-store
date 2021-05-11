@@ -5,6 +5,8 @@ import CartStorage from "../../storage/chart";
 import IProduct from "../../types/product";
 import { Currency } from "../../util";
 import ModalProductAdded from "../modal/modal-product-added";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import './style.scss';
 
 interface IProps
@@ -59,24 +61,25 @@ export default function ProductItem(props: IProps)
                         {product.name}
                     </Card.Title>
                     <Card.Text>
-                        {Currency.toBr(product.price)}
+                        <b>{Currency.toBr(product.price)}</b>
                         {
                             type == "remove" &&
                                 <p>
-                                    Quantidade: {props.product.amount}
+                                    <b>Quantidade: {props.product.amount}</b>
                                 </p>
                         }
                     </Card.Text>
-                    {
-                        type == "add" ?
-                            <Button variant="primary" onClick={addProduct}>
-                                Adicionar
-                            </Button> :
-                            <Button variant="primary" onClick={removeProduct}>
-                                Remover
-                            </Button>
-                    }
                 </Card.Body>
+                <div
+                    className="ui-product-item-action"
+                    onClick={type == "add" ? addProduct : removeProduct}
+                >
+                    {
+                        type == "add"
+                            ? <FontAwesomeIcon color="#7aa93c" icon={faPlus} /> 
+                            : <FontAwesomeIcon color="#d14141" icon={faTrash} /> 
+                    }
+                </div>
             </Card>
             <ModalProductAdded
                 show={showAdded}

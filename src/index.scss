@@ -13,4 +13,28 @@ a:hover
 .page
 {
     width: 100%;
+
+    .input-group
+    {
+        width: 30%;
+
+        .page-search-input
+        {
+            width: 20%;
+            border: none;
+            border-bottom: 1px solid #ced4da;
+            border-radius: 0;
+            outline: none;        
+        }
+
+        .input-group-text
+        {
+            background: none !important;
+            border-bottom: 1px solid #ced4da !important;
+            border: none;
+            border-radius: 0;
+        }
+    }
+
+    
 }

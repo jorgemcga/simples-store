@@ -7,7 +7,7 @@ import './style.scss';
 export default function NavBar()
 {
     return (
-        <Navbar variant="light" className="ui-navbar">
+        <Navbar className="ui-navbar">
             <Navbar.Brand className="ui-navbar-brand">
                 Simple Store
             </Navbar.Brand>
@@ -18,7 +18,7 @@ export default function NavBar()
             </Nav>
             <Form inline>
                 <Link className="nav-link" to="/cart">
-                    <FontAwesomeIcon color="#343a40" icon={faShoppingCart} />
+                    <FontAwesomeIcon icon={faShoppingCart} />
                 </Link>
             </Form>
         </Navbar>

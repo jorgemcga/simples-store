@@ -1,4 +1,40 @@
 .ui-product-item
 {
+    position: relative;
     margin-bottom: 4rem;
+    
+    .card-title
+    {
+        color: #28a745;
+    }
+
+    .ui-product-item-action
+    {
+        display: none
+    }
+
+    &:hover
+    {
+        transform: scale(1.02);
+
+        .ui-product-item-action
+        {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(38, 38, 38, 0.5);
+            display: block;
+            cursor: pointer;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: .25rem;
+
+            font-size: 40px;
+        }
+    }
 }

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Alert, Col, Container, Form, Row,  } from 'react-bootstrap';
+import { Alert, Col, Container, Form, InputGroup, Row,  } from 'react-bootstrap';
 import IProduct from '../../types/product';
 import AppContext from '../../contexts/AppContext';
 import axios from 'axios';
 import ProductItem from '../../components/product-item';
 import NavBar from '../../components/navbar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export default function ProductsPage()
 {
@@ -34,19 +34,27 @@ export default function ProductsPage()
 
     return (
         <div className="page">
+            <NavBar />
             <Container fluid>
-                <NavBar />
                 <br />
-                <Form.Control
-                    type="text"
-                    placeholder="Pesquisar produto..."
-                    onChange={e => setFilter(e.target.value)}
-                />
+                <InputGroup className="mb-3">
+                    <Form.Control
+                        className="page-search-input"
+                        type="text"
+                        placeholder="Pesquisar produto..."
+                        onChange={e => setFilter(e.target.value)}
+                    />
+                    <InputGroup.Append>
+                        <InputGroup.Text>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </InputGroup.Text>
+                    </InputGroup.Append>
+                </InputGroup>
                 <br />
                 <Row>
                     <Col>
                         <h2>
-                            <FontAwesomeIcon icon={faShoppingBag} /> Nossos Produtos
+                            Nossos Produtos
                         </h2>
                     </Col>
                 </Row>
