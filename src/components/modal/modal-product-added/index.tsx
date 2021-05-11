@@ -1,6 +1,6 @@
 import { Button, Modal } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './style.scss';
+import '../style.scss';
 
 interface IProps
 {

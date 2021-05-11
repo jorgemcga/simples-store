@@ -16,4 +16,20 @@
     {
         border: none !important;
     }
+
+    .modal-body
+    {
+        .buttons
+        {
+            display: flex;
+            justify-content: space-between;
+
+            button
+            {
+                width: 45%;
+            }
+        }
+    }
+
+    
 }

@@ -8,6 +8,7 @@ import ModalProductAdded from "../modal/modal-product-added";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import './style.scss';
+import ModalConfirm from "../modal/modal-confirm";
 
 interface IProps
 {
@@ -23,6 +24,7 @@ export default function ProductItem(props: IProps)
     } = React.useContext(AppContext);
 
     const [ showAdded, setShowAdded ] = React.useState(false);
+    const [ showConfirm, setShowConfirm ] = React.useState(false);
 
     const { type, product } = props;
 
@@ -44,12 +46,14 @@ export default function ProductItem(props: IProps)
         }
 
         setShowAdded(true);
+        setShowConfirm(false);
     }
 
     const removeProduct = () =>
     {
         const products = selectedProducts.filter(_product => _product.id != product.id)
         setSelectedProducts([ ...products ]);
+        setShowConfirm(false);
     }
 
     return (
@@ -72,7 +76,7 @@ export default function ProductItem(props: IProps)
                 </Card.Body>
                 <div
                     className="ui-product-item-action"
-                    onClick={type == "add" ? addProduct : removeProduct}
+                    onClick={() => setShowConfirm(true)}
                 >
                     {
                         type == "add"
@@ -84,6 +88,11 @@ export default function ProductItem(props: IProps)
             <ModalProductAdded
                 show={showAdded}
                 setShow={() => setShowAdded(false)}
+            />
+            <ModalConfirm
+                show={showConfirm}
+                onConfirm={type == "add" ? addProduct : removeProduct}
+                onCancel={() => setShowConfirm(false)}
             />
         </>
     )
